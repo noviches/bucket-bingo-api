@@ -1,8 +1,8 @@
-package com.bucketbingo.api.adapter.in.rest.models
+package com.bucketbingo.api.adapter.`in`.rest.models
 
 import java.util.Objects
-import com.bucketbingo.api.adapter.in.rest.models.BingoObjective
-import com.bucketbingo.api.adapter.in.rest.models.BingoSquareStatus
+import com.bucketbingo.api.adapter.`in`.rest.models.BingoObjective
+import com.bucketbingo.api.adapter.`in`.rest.models.BingoSquareStatus
 import com.fasterxml.jackson.annotation.JsonProperty
 import com.fasterxml.jackson.annotation.JsonValue
 import jakarta.validation.constraints.DecimalMax

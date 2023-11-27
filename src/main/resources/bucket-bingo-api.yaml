@@ -334,7 +334,9 @@ components:
             type: object
             properties:
               items:
-                type: string
+                type: array
+                items:
+                  $ref: '#/components/schemas/BingoBoard'
               totalCount:
                 type: integer
                 format: int64

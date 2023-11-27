@@ -3,13 +3,13 @@
  * https://openapi-generator.tech
  * Do not edit the class manually.
 */
-package com.bucketbingo.api.adapter.in.rest.operations
+package com.bucketbingo.api.adapter.`in`.rest.operations
 
-import com.bucketbingo.api.adapter.in.rest.models.BingoBoard
-import com.bucketbingo.api.adapter.in.rest.models.CreateBoardRequest
-import com.bucketbingo.api.adapter.in.rest.models.ListBoards200Response
-import com.bucketbingo.api.adapter.in.rest.models.PutBoardRequest
-import com.bucketbingo.api.adapter.in.rest.models.UpdateSquareRequest
+import com.bucketbingo.api.adapter.`in`.rest.models.BingoBoard
+import com.bucketbingo.api.adapter.`in`.rest.models.CreateBoardRequest
+import com.bucketbingo.api.adapter.`in`.rest.models.ListBoards200Response
+import com.bucketbingo.api.adapter.`in`.rest.models.PutBoardRequest
+import com.bucketbingo.api.adapter.`in`.rest.models.UpdateSquareRequest
 import org.springframework.http.HttpStatus
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity

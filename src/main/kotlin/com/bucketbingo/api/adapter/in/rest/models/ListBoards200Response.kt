@@ -1,6 +1,7 @@
-package com.bucketbingo.api.adapter.in.rest.models
+package com.bucketbingo.api.adapter.`in`.rest.models
 
 import java.util.Objects
+import com.bucketbingo.api.adapter.`in`.rest.models.BingoBoard
 import com.fasterxml.jackson.annotation.JsonProperty
 import jakarta.validation.constraints.DecimalMax
 import jakarta.validation.constraints.DecimalMin
@@ -22,7 +23,8 @@ import jakarta.validation.Valid
  */
 data class ListBoards200Response(
 
-    @get:JsonProperty("items", required = true) val items: kotlin.String,
+    @field:Valid
+    @get:JsonProperty("items", required = true) val items: kotlin.collections.List<BingoBoard>,
 
     @get:Min(0L)
     @get:JsonProperty("totalCount", required = true) val totalCount: kotlin.Long,

@@ -1,4 +1,4 @@
-package com.bucketbingo.api.adapter.in.rest.operations
+package com.bucketbingo.api.adapter.`in`.rest.operations
 
 import org.springframework.web.context.request.NativeWebRequest
 

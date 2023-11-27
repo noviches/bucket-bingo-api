@@ -1,4 +1,4 @@
-package com.bucketbingo.api.adapter.in.rest.models
+package com.bucketbingo.api.adapter.`in`.rest.models
 
 import java.util.Objects
 import com.fasterxml.jackson.annotation.JsonProperty
