@@ -19,6 +19,11 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 
+### openapi-generator ###
+.openapi-generator/
+.openapi-generator-ignore
+pom.xml
+
 ### IntelliJ IDEA ###
 .idea
 *.iws
