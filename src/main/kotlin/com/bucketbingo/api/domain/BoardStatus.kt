@@ -1,4 +1,4 @@
-package com.bucketbingo.api.domain.dto
+package com.bucketbingo.api.domain
 
 enum class BoardStatus {
     DRAFT,

@@ -1,4 +1,4 @@
-package com.bucketbingo.api.domain.dto
+package com.bucketbingo.api.domain
 
 data class Objective(
     val content: String,
