@@ -15,6 +15,6 @@ interface CreateBoardUseCase : UseCase<CreateBoardUseCase.Request, CreateBoardUs
     )
 
     data class Response(
-        val id: Int,
+        val id: Long,
     )
 }
