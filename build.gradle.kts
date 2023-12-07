@@ -35,6 +35,16 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-validation")
 
 	implementation("org.hashids:hashids:1.0.3")
+
+	// kotest
+	val kotestVersion = "5.5.5"
+	testImplementation("io.kotest:kotest-assertions-core:$kotestVersion") // optional, for kotest assertions
+	testImplementation("io.kotest:kotest-runner-junit5:$kotestVersion") // required
+	testImplementation("io.kotest.extensions:kotest-extensions-spring:1.1.2") // for spring test
+
+	// mockk
+	testImplementation("io.mockk:mockk:1.13.5")
+	testImplementation("com.ninja-squad:springmockk:3.1.1")
 }
 
 tasks.withType<KotlinCompile> {
