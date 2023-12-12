@@ -2,7 +2,7 @@ package com.bucketbingo.api.application.port.`in`
 
 import java.time.LocalDateTime
 
-interface CreateBoardUseCase : UseCase<CreateBoardUseCase.Request, CreateBoardUseCase.Response> {
+interface CreateBoardUseCase : UseCase<CreateBoardUseCase.Request, Long> {
 
     data class Request(
         val name: String,
@@ -12,9 +12,5 @@ interface CreateBoardUseCase : UseCase<CreateBoardUseCase.Request, CreateBoardUs
         val description: String?,
 
         val endDate: LocalDateTime?,
-    )
-
-    data class Response(
-        val id: Long,
     )
 }
