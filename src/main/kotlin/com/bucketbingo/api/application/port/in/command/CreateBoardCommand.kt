@@ -18,7 +18,7 @@ class CreateBoardCommand(
         private val logger = LoggerFactory.getLogger(CreateBoardCommand::class.java)
     }
 
-    override fun execute(user: User, data: CreateBoardUseCase.Request): CreateBoardUseCase.Response {
+    override fun execute(user: User, data: CreateBoardUseCase.Request): Long {
         val squaresLength = data.size * data.size
         logger.info("squaresLength: $squaresLength")
 
@@ -44,10 +44,6 @@ class CreateBoardCommand(
             updater = null
         )
 
-        val boardId = port.create(board)
-
-        return CreateBoardUseCase.Response(
-            id = boardId,
-        )
+        return port.create(board)
     }
 }

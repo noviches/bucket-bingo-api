@@ -14,6 +14,8 @@ data class Board(
 
     val squares: List<Square> = emptyList(),
 
+    val status: BoardStatus = BoardStatus.DRAFT,
+
     val startDate: LocalDateTime?,
 
     val endDate: LocalDateTime?,

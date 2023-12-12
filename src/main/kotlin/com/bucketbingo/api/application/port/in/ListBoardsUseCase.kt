@@ -1,24 +1,11 @@
 package com.bucketbingo.api.application.port.`in`
 
 import com.bucketbingo.api.domain.Board
+import com.bucketbingo.api.domain.Pagination
 
-interface ListBoardsUseCase : UseCase<ListBoardsUseCase.Request, ListBoardsUseCase.Response> {
+interface ListBoardsUseCase : UseCase<ListBoardsUseCase.Request, Pagination<Board>> {
 
     data class Request(
         val pageSize: Int = 20,
     )
-
-    data class Response(
-
-        val items: List<Board>,
-
-        val totalCount: Int,
-
-        val pageSize: Int,
-
-        val pageOffset: Int,
-
-        val totalPageCount: Int,
-
-        )
 }
