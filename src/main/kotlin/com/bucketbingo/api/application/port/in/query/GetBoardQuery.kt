@@ -5,6 +5,7 @@ import com.bucketbingo.api.application.port.out.persistence.GetBoardPort
 import com.bucketbingo.api.domain.Board
 import com.bucketbingo.api.domain.User
 import org.springframework.stereotype.Service
+import kotlin.jvm.optionals.getOrElse
 
 @Service
 class GetBoardQuery(
@@ -13,6 +14,6 @@ class GetBoardQuery(
 
     override fun execute(user: User, data: GetBoardUseCase.Request): Board {
         // TODO: board.squares가 잘 파싱되는지 확인하기
-        return port.findOne(data.id)
+        return port.findOne(data.id) ?: throw NoSuchElementException("board(${data.id}) not found")
     }
 }
