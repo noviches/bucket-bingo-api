@@ -5,6 +5,8 @@ import com.bucketbingo.api.domain.Board
 interface GetBoardUseCase : UseCase<GetBoardUseCase.Request, Board> {
 
     data class Request(
-        val id: Long,
-    )
+
+        val id: String,
+
+        )
 }

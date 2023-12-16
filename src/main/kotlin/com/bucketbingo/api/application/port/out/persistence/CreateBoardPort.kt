@@ -4,5 +4,5 @@ import com.bucketbingo.api.domain.Board
 
 interface CreateBoardPort {
 
-    fun create(board: Board): Long
+    fun create(board: Board): String
 }

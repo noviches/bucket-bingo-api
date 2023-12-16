@@ -1,4 +1,18 @@
 package com.bucketbingo.api.adapter.out.repository
 
-interface BoardRepository {
+import com.bucketbingo.api.domain.Board
+import org.springframework.data.domain.Page
+import org.springframework.data.domain.Pageable
+import org.springframework.data.mongodb.repository.MongoRepository
+import org.springframework.stereotype.Repository
+import java.util.*
+
+@Repository
+interface BoardRepository : MongoRepository<Board, String> {
+
+    override fun findAll(pageable: Pageable): Page<Board>
+
+    override fun findById(id: String): Optional<Board>
+
+    override fun deleteById(id: String)
 }

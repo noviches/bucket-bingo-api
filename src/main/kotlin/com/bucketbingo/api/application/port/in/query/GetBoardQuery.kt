@@ -5,7 +5,6 @@ import com.bucketbingo.api.application.port.out.persistence.GetBoardPort
 import com.bucketbingo.api.domain.Board
 import com.bucketbingo.api.domain.User
 import org.springframework.stereotype.Service
-import kotlin.jvm.optionals.getOrElse
 
 @Service
 class GetBoardQuery(

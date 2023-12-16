@@ -1,10 +1,14 @@
 package com.bucketbingo.api.domain
 
+import org.springframework.data.annotation.Id
+import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDateTime
 
+@Document(collection = "board")
 data class Board(
 
-    val id: Long? = null,
+    @Id
+    val id: String? = null,
 
     val name: String,
 
@@ -28,5 +32,6 @@ data class Board(
 
     val updatedById: String,
 
-    val updater: User? = null
-)
+    val updater: User? = null,
+
+    )

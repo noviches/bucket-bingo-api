@@ -18,7 +18,8 @@ class CreateBoardCommand(
         private val logger = LoggerFactory.getLogger(CreateBoardCommand::class.java)
     }
 
-    override fun execute(user: User, data: CreateBoardUseCase.Request): Long {
+    override fun execute(user: User, data: CreateBoardUseCase.Request): String {
+
         val squaresLength = data.size * data.size
         logger.info("squaresLength: $squaresLength")
 

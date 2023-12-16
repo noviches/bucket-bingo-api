@@ -1,3 +1,6 @@
+### MongoDB ###
+mongo/
+
 *-api.yml
 application.yml
 HELP.m

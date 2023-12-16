@@ -1,5 +1,6 @@
 package com.bucketbingo.api.adapter.out
 
+import com.bucketbingo.api.adapter.out.repository.BoardRepository
 import com.bucketbingo.api.application.port.`in`.ListBoardsUseCase
 import com.bucketbingo.api.application.port.out.persistence.CreateBoardPort
 import com.bucketbingo.api.application.port.out.persistence.DeleteBoardPort
@@ -8,40 +9,46 @@ import com.bucketbingo.api.application.port.out.persistence.ListBoardsPort
 import com.bucketbingo.api.common.annotation.Adapter
 import com.bucketbingo.api.domain.Board
 import com.bucketbingo.api.domain.Pagination
+import org.springframework.data.domain.PageRequest
+import org.springframework.data.domain.Sort
+import kotlin.jvm.optionals.getOrNull
 
 @Adapter
-class BucketBingoAdapter : CreateBoardPort, ListBoardsPort, GetBoardPort, DeleteBoardPort {
+class BucketBingoAdapter(
+    private val repository: BoardRepository
+) : CreateBoardPort, ListBoardsPort, GetBoardPort, DeleteBoardPort {
 
-    private var id: Long = 1
-    private val repository: MutableList<Board> = mutableListOf()
+    override fun create(board: Board): String {
 
-    override fun create(board: Board): Long {
-        val entity = board.copy(
-            id = id++
-        )
+        repository.save(board)
 
-        repository.add(entity)
-
-        return entity.id!!
+        return board.id!!
     }
 
     override fun findAll(data: ListBoardsUseCase.Request): Pagination<Board> {
+
+        val direction = Sort.Direction.valueOf(data.sort.direction.name)
+        val sort = Sort.by(direction, data.sort.by.value)
+        val pageRequest = PageRequest.of(data.pageSize, data.pageOffset, sort)
+
+        val boards = repository.findAll(pageRequest)
+
         return Pagination(
-            items = repository,
-            totalCount = repository.size,
-            pageSize = 42,
-            pageOffset = 1,
-            totalPageCount = 42,
+            items = boards.content,
+            totalCount = boards.numberOfElements,
+            pageSize = boards.size,
+            pageOffset = boards.number,
+            totalPageCount = boards.totalPages,
         )
     }
 
-    override fun findOne(id: Long): Board? {
+    override fun findOne(id: String): Board? {
 
-        return repository.find { it.id == id }
+        return repository.findById(id).getOrNull()
     }
 
-    override fun delete(id: Long): Int {
+    override fun delete(id: String) {
 
-        return 1
+        repository.deleteById(id)
     }
 }

@@ -4,5 +4,5 @@ import com.bucketbingo.api.domain.Board
 
 interface GetBoardPort {
 
-    fun findOne(id: Long): Board?
+    fun findOne(id: String): Board?
 }
