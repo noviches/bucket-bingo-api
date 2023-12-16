@@ -41,7 +41,7 @@ class CreateBoardCommandTest : BehaviorSpec() {
                 val result = command.execute(user, request)
 
                 Then("3이 나온디") {
-                    result shouldBe CreateBoardUseCase.Response(1)
+                    result shouldBe 1
                 }
             }
         }

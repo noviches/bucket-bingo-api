@@ -1,2 +1,11 @@
+spring:
+  data:
+    mongodb:
+      username: root
+      password: bucket-bingo-api
+      host: 127.0.0.1
+      port: 27017
+      database: local
+
 server:
   port: 3001
