@@ -1,6 +1,8 @@
 package com.bucketbingo.api.domain
 
+import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
+import org.springframework.data.annotation.LastModifiedDate
 import org.springframework.data.mongodb.core.mapping.Document
 import java.time.LocalDateTime
 
@@ -8,7 +10,7 @@ import java.time.LocalDateTime
 data class Board(
 
     @Id
-    val id: String? = null,
+    var id: String? = null,
 
     val name: String,
 
@@ -24,11 +26,15 @@ data class Board(
 
     val endDate: LocalDateTime?,
 
-    val createdAt: LocalDateTime,
+    @CreatedDate
+    var createdAt: LocalDateTime? = null,
 
     val createdById: String,
 
     val creator: User? = null,
+
+    @LastModifiedDate
+    var updatedAt: LocalDateTime? = null,
 
     val updatedById: String,
 

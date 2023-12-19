@@ -20,7 +20,12 @@ class BucketBingoAdapter(
 
     override fun create(board: Board): String {
 
-        repository.save(board)
+        try {
+            repository.save(board)
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
+
 
         return board.id!!
     }

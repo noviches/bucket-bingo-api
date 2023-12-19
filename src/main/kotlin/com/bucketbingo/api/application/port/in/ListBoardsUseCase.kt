@@ -13,7 +13,7 @@ interface ListBoardsUseCase : UseCase<ListBoardsUseCase.Request, Pagination<Boar
 
         val sort: Sort = Sort(),
 
-        )
+    )
 
     data class Sort(
 
@@ -21,7 +21,7 @@ interface ListBoardsUseCase : UseCase<ListBoardsUseCase.Request, Pagination<Boar
 
         val direction: Direction = Direction.DESC,
 
-        ) {
+    ) {
 
         enum class Direction {
             ASC,

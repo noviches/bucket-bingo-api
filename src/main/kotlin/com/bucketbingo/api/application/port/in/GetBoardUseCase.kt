@@ -8,5 +8,5 @@ interface GetBoardUseCase : UseCase<GetBoardUseCase.Request, Board> {
 
         val id: String,
 
-        )
+    )
 }
