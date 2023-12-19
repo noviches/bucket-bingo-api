@@ -6,6 +6,7 @@ spring:
       host: localhost
       port: 27017
       database: local
+      authentication-database: admin
 
 server:
   port: 33728
