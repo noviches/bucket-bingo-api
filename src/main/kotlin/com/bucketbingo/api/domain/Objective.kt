@@ -8,4 +8,4 @@ data class Objective(
 
     val currentCount: Int = 0,
 
-    )
+)

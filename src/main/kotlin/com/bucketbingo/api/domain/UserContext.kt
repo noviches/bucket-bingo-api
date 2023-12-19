@@ -8,7 +8,7 @@ data class UserContext(
 
     val by: By,
 
-    ) {
+) {
 
     data class By(
 

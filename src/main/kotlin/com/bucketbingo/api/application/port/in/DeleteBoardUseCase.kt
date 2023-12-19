@@ -6,5 +6,5 @@ interface DeleteBoardUseCase : UseCase<DeleteBoardUseCase.Request, Unit> {
 
         val id: String,
 
-        )
+    )
 }

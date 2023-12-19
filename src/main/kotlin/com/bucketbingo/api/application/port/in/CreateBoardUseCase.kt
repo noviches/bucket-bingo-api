@@ -14,5 +14,5 @@ interface CreateBoardUseCase : UseCase<CreateBoardUseCase.Request, String> {
 
         val endDate: LocalDateTime?,
 
-        )
+    )
 }

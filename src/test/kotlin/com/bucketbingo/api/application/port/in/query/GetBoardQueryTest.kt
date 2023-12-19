@@ -1,7 +1,7 @@
-package com.bucketbingo.api.application.port.`in`.command
+package com.bucketbingo.api.application.port.`in`.query
 
-import com.bucketbingo.api.application.port.`in`.CreateBoardUseCase
-import com.bucketbingo.api.application.port.out.persistence.CreateBoardPort
+import com.bucketbingo.api.application.port.`in`.GetBoardUseCase
+import com.bucketbingo.api.application.port.out.persistence.GetBoardPort
 import com.bucketbingo.api.domain.User
 import com.ninjasquad.springmockk.SpykBean
 import io.kotest.core.extensions.Extension
@@ -13,33 +13,30 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.boot.test.context.SpringBootTest
 
 @SpringBootTest
-//@ActiveProfiles("test")
-class CreateBoardCommandTest : BehaviorSpec() {
+class GetBoardQueryTest : BehaviorSpec() {
 
     override fun extensions(): List<Extension> = listOf(SpringExtension)
 
     @Autowired
-    private lateinit var command: CreateBoardUseCase
+    private lateinit var query: GetBoardUseCase
 
     @SpykBean
-    private lateinit var outgoingPort: CreateBoardPort
+    private lateinit var outgoingPort: GetBoardPort
 
     init {
         afterEach { unmockkObject(outgoingPort) }
 
         this.Given("테스트") {
             val user = User("tester")
-            val request = CreateBoardUseCase.Request(
-                name = "test-board-33",
-                size = 5,
-                description = null,
-                endDate = null,
+            val request = GetBoardUseCase.Request(
+                id = "65816b425a4b2a7f0b52b964",
             )
 
-            When("둘을 더하면") {
-                val result = command.execute(user, request)
+            When("65816b425a4b2a7f0b52b964 ID로 Board를 가져오면") {
+                val result = query.execute(user, request)
 
-                Then("3이 나온다") {
+                Then("Board 객체를 가져온다") {
+                    println(result)
                     result shouldNotBe null
                 }
             }

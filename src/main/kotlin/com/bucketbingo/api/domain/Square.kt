@@ -12,4 +12,4 @@ data class Square(
 
     val updatedAt: LocalDateTime,
 
-    )
+)

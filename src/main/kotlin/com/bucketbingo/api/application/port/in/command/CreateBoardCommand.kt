@@ -38,7 +38,6 @@ class CreateBoardCommand(
             squares = squares,
             startDate = null,
             endDate = data.endDate,
-            createdAt = LocalDateTime.now(),
             createdById = user.id,
             creator = null,
             updatedById = user.id,

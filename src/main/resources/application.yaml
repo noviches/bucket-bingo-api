@@ -3,7 +3,7 @@ spring:
     mongodb:
       username: root
       password: bucket-bingo-api
-      host: 127.0.0.1
+      host: localhost
       port: 27017
       database: local
 
