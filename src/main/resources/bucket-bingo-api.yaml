@@ -24,6 +24,8 @@ paths:
       operationId: listBoards
       parameters:
         - $ref: '#/components/parameters/authorization'
+        - $ref: '#/components/parameters/pageSize'
+        - $ref: '#/components/parameters/pageOffset'
       description: 빙고판 목록을 조회합니다.
     post:
       summary: 빙고판 생성
@@ -256,6 +258,26 @@ components:
       schema:
         type: string
       description: 사용자 인증 정보
+    pageSize:
+      name: pageSize
+      in: query
+      required: false
+      schema:
+        type: integer
+        format: int32
+        minimum: 1
+        default: 6
+      description: 이번 목록 조회시 적용할 page 크기
+    pageOffset:
+      name: pageOffset
+      in: query
+      required: false
+      schema:
+        type: integer
+        minimum: 0
+        default: 0
+        format: int32
+      description: 현재 조회 중인 page의 오프셋
   requestBodies:
     CreateBoard:
       description: ''
