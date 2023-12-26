@@ -71,7 +71,7 @@ interface BucketBingoApi {
             value = ["/boards"],
             produces = ["application/json"]
     )
-    fun listBoards( @RequestHeader(value = "authorization", required = false) authorization: kotlin.String?): ResponseEntity<ListBoards200Response> {
+    fun listBoards( @RequestHeader(value = "authorization", required = false) authorization: kotlin.String?,@Min(1) @Valid @RequestParam(value = "pageSize", required = false, defaultValue = "6") pageSize: kotlin.Int,@Min(0) @Valid @RequestParam(value = "pageOffset", required = false, defaultValue = "0") pageOffset: kotlin.Int): ResponseEntity<ListBoards200Response> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 

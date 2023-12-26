@@ -2,10 +2,7 @@ package com.bucketbingo.api.adapter.out
 
 import com.bucketbingo.api.adapter.out.repository.BoardRepository
 import com.bucketbingo.api.application.port.`in`.ListBoardsUseCase
-import com.bucketbingo.api.application.port.out.persistence.CreateBoardPort
-import com.bucketbingo.api.application.port.out.persistence.DeleteBoardPort
-import com.bucketbingo.api.application.port.out.persistence.GetBoardPort
-import com.bucketbingo.api.application.port.out.persistence.ListBoardsPort
+import com.bucketbingo.api.application.port.out.persistence.*
 import com.bucketbingo.api.common.annotation.Adapter
 import com.bucketbingo.api.domain.Board
 import com.bucketbingo.api.domain.Pagination
@@ -16,7 +13,7 @@ import kotlin.jvm.optionals.getOrNull
 @Adapter
 class BucketBingoAdapter(
     private val repository: BoardRepository
-) : CreateBoardPort, ListBoardsPort, GetBoardPort, DeleteBoardPort {
+) : CreateBoardPort, ListBoardsPort, GetBoardPort, DeleteBoardPort, UpdateBoardPort {
 
     override fun create(board: Board): String {
 
@@ -55,5 +52,10 @@ class BucketBingoAdapter(
     override fun delete(id: String) {
 
         repository.deleteById(id)
+    }
+
+    override fun update(board: Board) {
+
+        repository.save(board)
     }
 }
