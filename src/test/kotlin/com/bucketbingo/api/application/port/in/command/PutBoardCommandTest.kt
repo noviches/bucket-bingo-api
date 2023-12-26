@@ -2,6 +2,7 @@ package com.bucketbingo.api.application.port.`in`.command
 
 import com.bucketbingo.api.application.port.`in`.PutBoardUseCase
 import com.bucketbingo.api.application.port.out.persistence.UpdateBoardPort
+import com.bucketbingo.api.domain.Objective
 import com.bucketbingo.api.domain.Square
 import com.bucketbingo.api.domain.SquareStatus
 import com.bucketbingo.api.domain.User
@@ -33,7 +34,9 @@ class PutBoardCommandTest: BehaviorSpec() {
             val squares = (1..25).map {
                 Square(
                     order = it,
-                    objective = null,
+                    objective = Objective(
+                        content = "어쩌구 저쩌구"
+                    ),
                     status = SquareStatus.TODO,
                     updatedAt = LocalDateTime.now(),
                 )
