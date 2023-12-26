@@ -38,7 +38,6 @@ class CreateBoardCommandTest : BehaviorSpec() {
 
             When("둘을 더하면") {
                 val result = command.execute(user, request)
-
                 Then("3이 나온다") {
                     result shouldNotBe null
                 }
