@@ -40,4 +40,4 @@ data class Board(
 
     val updater: User? = null,
 
-    )
+)
