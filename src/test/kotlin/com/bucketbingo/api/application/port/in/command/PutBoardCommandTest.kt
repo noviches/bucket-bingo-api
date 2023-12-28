@@ -42,7 +42,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                 )
             }
             val request = PutBoardUseCase.Request(
-                boardId = "658aa5487fbfca00ecb0bc64",
+                boardId = "658d4d1ef385c32cf90d8cf5",
                 squares = squares,
                 name = "업데이트했지롱",
                 description = "늘보는 고개만 끄덕이고 있었다",
