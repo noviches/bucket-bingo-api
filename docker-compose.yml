@@ -7,7 +7,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - /tmp/mongodb:/data/db
+      - /tmp/mongodbbb:/data/db
     environment:
       - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=bucket-bingo-api
