@@ -31,7 +31,7 @@ import jakarta.validation.Valid
  */
 data class BingoBoard(
 
-    @get:JsonProperty("id", required = true) val id: kotlin.Long,
+    @get:JsonProperty("id", required = true) val id: kotlin.String,
 
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 

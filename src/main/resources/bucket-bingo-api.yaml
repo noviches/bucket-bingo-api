@@ -118,7 +118,7 @@ paths:
         required: true
         description: 빙고 식별자
       - schema:
-          type: string
+          type: integer
         name: squareId
         in: path
         required: true
@@ -143,8 +143,7 @@ components:
       type: object
       properties:
         id:
-          type: integer
-          format: int64
+          type: string
         name:
           type: string
         description:

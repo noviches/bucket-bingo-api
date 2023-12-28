@@ -1,8 +1,11 @@
 package com.bucketbingo.api.adapter.`in`.rest
 
+import com.bucketbingo.api.adapter.core.extension.convertToBingoBoard
+import com.bucketbingo.api.adapter.core.extension.convertToSquare
 import com.bucketbingo.api.adapter.`in`.rest.models.*
 import com.bucketbingo.api.adapter.`in`.rest.operations.BucketBingoApi
 import com.bucketbingo.api.application.port.`in`.*
+import com.bucketbingo.api.domain.SquareStatus
 import com.bucketbingo.api.domain.User
 import org.slf4j.LoggerFactory
 import org.springframework.http.ResponseEntity
@@ -46,13 +49,29 @@ class BucketBingoController(
     override fun deleteBoard(boardId: String, authorization: String?): ResponseEntity<Unit> {
         require(authorization != null) { "authorization cannot be null" }
 
-        return super.deleteBoard(boardId, authorization)
+        deleteBoard.execute(
+            tester, DeleteBoardUseCase.Request(
+                id = boardId
+            )
+        )
+
+        return ResponseEntity
+            .noContent()
+            .build()
     }
 
     override fun getBoard(boardId: String, authorization: String?): ResponseEntity<BingoBoard> {
         require(authorization != null) { "authorization cannot be null" }
 
-        return super.getBoard(boardId, authorization)
+        val result = getBoard.execute(
+            tester, GetBoardUseCase.Request(
+                id = boardId
+            )
+        )
+
+        return ResponseEntity.ok(
+            result.convertToBingoBoard()
+        )
     }
 
     override fun listBoards(
@@ -62,7 +81,22 @@ class BucketBingoController(
     ): ResponseEntity<ListBoards200Response> {
         require(authorization != null) { "authorization cannot be null" }
 
-        return super.listBoards(authorization, pageSize, pageOffset)
+        val result = listBoards.execute(
+            tester, ListBoardsUseCase.Request(
+                pageSize = pageSize,
+                pageOffset = pageOffset,
+            )
+        )
+
+        return ResponseEntity.ok(
+            ListBoards200Response(
+                items = result.items.map { it.convertToBingoBoard() },
+                totalCount = result.totalCount.toLong(),
+                pageSize = result.pageSize.toLong(),
+                pageOffset = result.pageOffset.toLong(),
+                totalPageCount = result.totalPageCount.toLong(),
+            )
+        )
     }
 
     override fun putBoard(
@@ -73,25 +107,57 @@ class BucketBingoController(
         require(authorization != null) { "authorization cannot be null" }
         require(putBoardRequest != null) { "request cannot be null" }
 
-        return super.putBoard(boardId, authorization, putBoardRequest)
+        putBoard.execute(
+            tester, PutBoardUseCase.Request(
+                boardId = boardId,
+                name = putBoardRequest.name,
+                description = putBoardRequest.description,
+                endDate = putBoardRequest.endDate.toLocalDateTime(),
+                squares = putBoardRequest.squares.convertToSquare()
+            )
+        )
+
+        return ResponseEntity
+            .noContent()
+            .build()
     }
 
     override fun startBingo(boardId: String, authorization: String?): ResponseEntity<Unit> {
         require(authorization != null) { "authorization cannot be null" }
 
-        return super.startBingo(boardId, authorization)
+        startBoard.execute(
+            tester, StartBoardUseCase.Request(
+                boardId = boardId
+            )
+        )
+
+        return ResponseEntity
+            .noContent()
+            .build()
     }
 
     override fun updateSquare(
         boardId: String,
-        squareId: String,
+        squareId: Int,
         authorization: String?,
         updateSquareRequest: UpdateSquareRequest?
     ): ResponseEntity<Unit> {
         require(authorization != null) { "authorization cannot be null" }
         require(updateSquareRequest != null) { "request cannot be null" }
 
-        return super.updateSquare(boardId, squareId, authorization, updateSquareRequest)
-    }
+        //TODO : 추후 고도화될 경우 아래 조건은 제거되어야함
+        require(updateSquareRequest.status != null) { "square status cannot be null" }
 
+        updateSquare.execute(
+            tester, UpdateSquareUseCase.Request(
+                boardId = boardId,
+                squareId = squareId,
+                status = SquareStatus.valueOf(updateSquareRequest.status.value)
+            )
+        )
+
+        return ResponseEntity
+            .noContent()
+            .build()
+    }
 }

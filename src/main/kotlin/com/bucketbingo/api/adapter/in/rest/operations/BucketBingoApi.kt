@@ -100,7 +100,7 @@ interface BucketBingoApi {
             value = ["/boards/{boardId}/squares/{squareId}"],
             consumes = ["application/json"]
     )
-    fun updateSquare( @PathVariable("boardId") boardId: kotlin.String, @PathVariable("squareId") squareId: kotlin.String, @RequestHeader(value = "authorization", required = false) authorization: kotlin.String?, @Valid @RequestBody(required = false) updateSquareRequest: UpdateSquareRequest?): ResponseEntity<Unit> {
+    fun updateSquare( @PathVariable("boardId") boardId: kotlin.String, @PathVariable("squareId") squareId: kotlin.Int, @RequestHeader(value = "authorization", required = false) authorization: kotlin.String?, @Valid @RequestBody(required = false) updateSquareRequest: UpdateSquareRequest?): ResponseEntity<Unit> {
         return ResponseEntity(HttpStatus.NOT_IMPLEMENTED)
     }
 }
