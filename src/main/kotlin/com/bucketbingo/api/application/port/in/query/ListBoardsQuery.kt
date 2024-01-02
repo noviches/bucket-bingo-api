@@ -13,7 +13,6 @@ class ListBoardsQuery(
 ) : ListBoardsUseCase {
 
     override fun execute(user: User, data: ListBoardsUseCase.Request): Pagination<Board> {
-        // TODO: board.squares가 잘 파싱되는지 확인하기
         return port.findAll(data)
     }
 }

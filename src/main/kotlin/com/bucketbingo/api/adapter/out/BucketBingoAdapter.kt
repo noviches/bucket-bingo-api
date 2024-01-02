@@ -23,7 +23,6 @@ class BucketBingoAdapter(
             e.printStackTrace()
         }
 
-
         return board.id!!
     }
 

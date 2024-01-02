@@ -11,7 +11,7 @@ import java.time.LocalDateTime
 
 @Service
 class CreateBoardCommand(
-    private val port: CreateBoardPort,
+    private val port: CreateBoardPort
 ) : CreateBoardUseCase {
 
     companion object {
@@ -20,14 +20,14 @@ class CreateBoardCommand(
 
     override fun execute(user: User, data: CreateBoardUseCase.Request): String {
 
-        val squaresLength = data.size * data.size
+        val squaresLength = Board.getSquareLength(data.size)
         logger.info("squaresLength: $squaresLength")
 
         val squares = (1..squaresLength).map { order ->
             Square(
                 order = order,
                 objective = null,
-                updatedAt = LocalDateTime.now(),
+                updatedAt = LocalDateTime.now()
             )
         }
 

@@ -10,6 +10,6 @@ data class Pagination<out T>(
 
     val pageOffset: Int,
 
-    val totalPageCount: Int,
+    val totalPageCount: Int
 
 )

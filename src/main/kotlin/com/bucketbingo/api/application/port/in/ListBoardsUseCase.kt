@@ -11,7 +11,7 @@ interface ListBoardsUseCase : UseCase<ListBoardsUseCase.Request, Pagination<Boar
 
         val pageOffset: Int = 0,
 
-        val sort: Sort = Sort(),
+        val sort: Sort = Sort()
 
     )
 
@@ -19,17 +19,17 @@ interface ListBoardsUseCase : UseCase<ListBoardsUseCase.Request, Pagination<Boar
 
         val by: By = By.CREATED_AT,
 
-        val direction: Direction = Direction.DESC,
+        val direction: Direction = Direction.DESC
 
     ) {
 
         enum class Direction {
             ASC,
-            DESC,
+            DESC
         }
 
         enum class By(val value: String) {
-            CREATED_AT("createdAt"),
+            CREATED_AT("createdAt")
         }
     }
 }

@@ -10,7 +10,7 @@ interface UpdateSquareUseCase : UseCase<UpdateSquareUseCase.Request, Unit> {
 
         val squareId: Int,
 
-        val status: SquareStatus,
+        val status: SquareStatus
 
-        )
+    )
 }

@@ -6,7 +6,7 @@ interface GetBoardUseCase : UseCase<GetBoardUseCase.Request, Board> {
 
     data class Request(
 
-        val id: String,
+        val id: String
 
     )
 }

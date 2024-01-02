@@ -12,7 +12,7 @@ interface CreateBoardUseCase : UseCase<CreateBoardUseCase.Request, String> {
 
         val description: String?,
 
-        val endDate: LocalDateTime?,
+        val endDate: LocalDateTime?
 
     )
 }

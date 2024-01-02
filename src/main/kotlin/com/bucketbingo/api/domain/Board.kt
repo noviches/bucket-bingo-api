@@ -31,6 +31,7 @@ data class Board(
 
     val createdById: String,
 
+    @Transient
     val creator: User? = null,
 
     @LastModifiedDate
@@ -38,6 +39,17 @@ data class Board(
 
     val updatedById: String,
 
-    val updater: User? = null,
+    @Transient
+    val updater: User? = null
 
-)
+) {
+
+    companion object {
+
+        fun getSquareLength(boardSize: Int): Int {
+            return boardSize * boardSize
+        }
+
+    }
+
+}

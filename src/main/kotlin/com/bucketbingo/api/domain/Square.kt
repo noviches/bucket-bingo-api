@@ -10,6 +10,6 @@ data class Square(
 
     val status: SquareStatus = SquareStatus.TODO,
 
-    val updatedAt: LocalDateTime,
+    val updatedAt: LocalDateTime
 
 )

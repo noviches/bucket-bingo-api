@@ -3,7 +3,10 @@ package com.bucketbingo.api.application.port.`in`.command
 import com.bucketbingo.api.application.port.`in`.PutBoardUseCase
 import com.bucketbingo.api.application.port.out.persistence.GetBoardPort
 import com.bucketbingo.api.application.port.out.persistence.UpdateBoardPort
-import com.bucketbingo.api.domain.*
+import com.bucketbingo.api.domain.Board
+import com.bucketbingo.api.domain.BoardStatus
+import com.bucketbingo.api.domain.SquareStatus
+import com.bucketbingo.api.domain.User
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
 
@@ -29,7 +32,7 @@ class PutBoardCommand(
             throw RuntimeException("cannot update board")
         }
 
-        val expectedSize = board.size * board.size
+        val expectedSize = Board.getSquareLength(board.size)
         if(squares.size != expectedSize) {
             throw IllegalArgumentException("squares size must be $expectedSize")
         }

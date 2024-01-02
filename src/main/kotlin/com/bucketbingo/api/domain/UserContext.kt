@@ -6,13 +6,13 @@ data class UserContext(
 
     val at: LocalDateTime,
 
-    val by: By,
+    val by: By
 
 ) {
 
     data class By(
 
-        val id: String,
+        val id: String
 
-        )
+    )
 }

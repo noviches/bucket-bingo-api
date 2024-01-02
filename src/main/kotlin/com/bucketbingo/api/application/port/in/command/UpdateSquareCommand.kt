@@ -3,6 +3,7 @@ package com.bucketbingo.api.application.port.`in`.command
 import com.bucketbingo.api.application.port.`in`.UpdateSquareUseCase
 import com.bucketbingo.api.application.port.out.persistence.GetBoardPort
 import com.bucketbingo.api.application.port.out.persistence.UpdateBoardPort
+import com.bucketbingo.api.domain.Board
 import com.bucketbingo.api.domain.BoardStatus
 import com.bucketbingo.api.domain.User
 import org.slf4j.LoggerFactory
@@ -30,7 +31,7 @@ class UpdateSquareCommand(
             throw RuntimeException("cannot update square")
         }
 
-        val maxSquareId = board.size * board.size
+        val maxSquareId = Board.getSquareLength(board.size)
         if (squareId > maxSquareId) {
             throw IllegalArgumentException("maximum square id is $maxSquareId")
         }

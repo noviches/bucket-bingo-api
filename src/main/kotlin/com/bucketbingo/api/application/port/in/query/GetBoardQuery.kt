@@ -12,7 +12,6 @@ class GetBoardQuery(
 ) : GetBoardUseCase {
 
     override fun execute(user: User, data: GetBoardUseCase.Request): Board {
-        // TODO: board.squares가 잘 파싱되는지 확인하기
         return port.findOne(data.id) ?: throw NoSuchElementException("board(${data.id}) not found")
     }
 }

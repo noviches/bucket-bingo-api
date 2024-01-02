@@ -6,6 +6,6 @@ data class Objective(
 
     val totalCount: Int = 1,
 
-    val currentCount: Int = 0,
+    val currentCount: Int = 0
 
 )

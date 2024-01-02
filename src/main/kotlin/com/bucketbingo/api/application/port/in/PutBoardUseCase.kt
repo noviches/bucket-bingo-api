@@ -15,7 +15,7 @@ interface PutBoardUseCase : UseCase<PutBoardUseCase.Request, Unit> {
 
         val description: String,
 
-        val endDate: LocalDateTime?,
+        val endDate: LocalDateTime?
 
     )
 }

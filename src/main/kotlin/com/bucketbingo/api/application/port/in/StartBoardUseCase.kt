@@ -4,7 +4,7 @@ interface StartBoardUseCase : UseCase<StartBoardUseCase.Request, Unit> {
 
     data class Request(
 
-        val boardId: String,
+        val boardId: String
 
     )
 }
