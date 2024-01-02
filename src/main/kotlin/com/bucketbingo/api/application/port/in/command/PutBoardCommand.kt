@@ -31,7 +31,7 @@ class PutBoardCommand(
 
         val expectedSize = board.size * board.size
         if(squares.size != expectedSize) {
-            throw IllegalArgumentException("board size must be $expectedSize")
+            throw IllegalArgumentException("squares size must be $expectedSize")
         }
         if(squares.any { it.status != SquareStatus.TODO }) {
             throw IllegalArgumentException("all board squares status must be TODO")
