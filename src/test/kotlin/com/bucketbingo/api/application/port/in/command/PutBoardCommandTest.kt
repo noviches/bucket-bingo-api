@@ -95,7 +95,6 @@ class PutBoardCommandTest: BehaviorSpec() {
                     getBoardPort.findOne(any())
                 } returns Board(
                     status = BoardStatus.ACTIVE,
-
                     id = TEST_BOARD_ID,
                     name = TEST_BOARD_NAME,
                     description = "",
@@ -166,7 +165,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                 } returns Board(
                     id = TEST_BOARD_ID,
                     name = TEST_BOARD_NAME,
-                    size = TEST_BOARD_SIZE ,
+                    size = TEST_BOARD_SIZE,
                     status = BoardStatus.DRAFT,
                     description = "",
                     squares = getSquaresMockBy(size = TEST_BOARD_SIZE),
