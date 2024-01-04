@@ -30,7 +30,7 @@ data class CreateBoardRequest(
 
     @get:Min(1)
     @get:Max(22)
-    @get:JsonProperty("targetCount") val targetCount: kotlin.Int? = null,
+    @get:JsonProperty("targetCount", required = true) val targetCount: kotlin.Int,
 
     @get:JsonProperty("description") val description: kotlin.String? = null,
 

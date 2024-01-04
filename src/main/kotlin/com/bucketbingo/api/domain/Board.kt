@@ -22,6 +22,8 @@ data class Board(
 
     val status: BoardStatus = BoardStatus.DRAFT,
 
+    val targetCount: Int,
+
     val startDate: LocalDateTime?,
 
     val endDate: LocalDateTime?,

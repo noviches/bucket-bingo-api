@@ -327,6 +327,7 @@ components:
             required:
               - name
               - size
+              - targetCount
     PutBoard:
       description: ''
       content:
