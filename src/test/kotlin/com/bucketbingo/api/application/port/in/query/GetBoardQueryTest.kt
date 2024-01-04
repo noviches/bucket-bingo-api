@@ -2,6 +2,7 @@ package com.bucketbingo.api.application.port.`in`.query
 
 import com.bucketbingo.api.adapter.out.repository.BoardRepository
 import com.bucketbingo.api.application.port.`in`.GetBoardUseCase
+import com.bucketbingo.api.application.port.`in`.command.UpdateSquareCommandTest
 import com.bucketbingo.api.application.port.out.persistence.GetBoardPort
 import com.bucketbingo.api.domain.Board
 import com.bucketbingo.api.domain.Square
@@ -69,6 +70,7 @@ class GetBoardQueryTest : BehaviorSpec() {
                     description = "",
                     size = TEST_BOARD_SIZE,
                     squares = getSquaresMockBy(size = TEST_BOARD_SIZE),
+                    targetCount = TEST_BOARD_SIZE,
                     startDate = null,
                     endDate = null,
                     createdById = TEST_USER_ID,

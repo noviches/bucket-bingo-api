@@ -116,6 +116,7 @@ class BingoCheckerImplTest : BehaviorSpec() {
             description = "this is test board",
             size = size,
             squares = square,
+            targetCount = size,
             startDate = null,
             endDate = null,
             createdById = "tester",

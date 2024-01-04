@@ -45,6 +45,7 @@ class PutBoardCommand(
                 squares = squares,
                 name = data.name,
                 description = data.description,
+                targetCount = data.targetCount,
                 endDate = data.endDate,
             )
         )

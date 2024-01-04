@@ -12,6 +12,8 @@ interface CreateBoardUseCase : UseCase<CreateBoardUseCase.Request, String> {
 
         val description: String?,
 
+        val targetCount: Int,
+
         val endDate: LocalDateTime?
 
     )

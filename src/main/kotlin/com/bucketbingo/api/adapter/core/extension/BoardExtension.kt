@@ -23,6 +23,10 @@ internal fun Board.convertToBingoBoard(): BingoBoard {
                 id = createdById,
             )
         ),
+        bingo = Bingo(
+            targetCount = targetCount,
+            currentCount = 0, // TODO: 수정 필요
+        ),
         updated = UserContext(
             at = updatedAt!!.toOffsetDateTime(),
             by = User(

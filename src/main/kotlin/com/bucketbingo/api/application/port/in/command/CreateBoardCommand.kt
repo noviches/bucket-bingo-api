@@ -36,6 +36,7 @@ class CreateBoardCommand(
             description = data.description ?: "",
             size = data.size,
             squares = squares,
+            targetCount = data.targetCount,
             startDate = null,
             endDate = data.endDate,
             createdById = user.id,
