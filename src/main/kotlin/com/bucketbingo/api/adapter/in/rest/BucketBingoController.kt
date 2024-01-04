@@ -38,6 +38,7 @@ class BucketBingoController(
             name = createBoardRequest.name,
             size = createBoardRequest.propertySize,
             description = createBoardRequest.description,
+            targetCount = createBoardRequest.targetCount,
             endDate = createBoardRequest.endDate?.toLocalDateTime(),
         ))
 
@@ -112,6 +113,7 @@ class BucketBingoController(
                 boardId = boardId,
                 name = putBoardRequest.name,
                 description = putBoardRequest.description,
+                targetCount = putBoardRequest.targetCount,
                 endDate = putBoardRequest.endDate.toLocalDateTime(),
                 squares = putBoardRequest.squares.convertToSquare()
             )

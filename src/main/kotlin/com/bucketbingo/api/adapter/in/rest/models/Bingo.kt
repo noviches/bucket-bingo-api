@@ -1,7 +1,6 @@
 package com.bucketbingo.api.adapter.`in`.rest.models
 
 import java.util.Objects
-import com.bucketbingo.api.adapter.`in`.rest.models.PutBoardRequestSquaresInner
 import com.fasterxml.jackson.annotation.JsonProperty
 import jakarta.validation.constraints.DecimalMax
 import jakarta.validation.constraints.DecimalMin
@@ -15,27 +14,18 @@ import jakarta.validation.Valid
 
 /**
  * 
- * @param name 
- * @param description 
  * @param targetCount 
- * @param endDate 
- * @param squares 
+ * @param currentCount 
  */
-data class PutBoardRequest(
-
-    @get:JsonProperty("name", required = true) val name: kotlin.String,
-
-    @get:JsonProperty("description", required = true) val description: kotlin.String,
+data class Bingo(
 
     @get:Min(1)
     @get:Max(22)
     @get:JsonProperty("targetCount", required = true) val targetCount: kotlin.Int,
 
-    @get:JsonProperty("endDate", required = true) val endDate: java.time.OffsetDateTime,
-
-    @field:Valid
-    @get:Size(min=25,max=100) 
-    @get:JsonProperty("squares", required = true) val squares: kotlin.collections.List<PutBoardRequestSquaresInner>
+    @get:Min(0)
+    @get:Max(22)
+    @get:JsonProperty("currentCount", required = true) val currentCount: kotlin.Int
 ) {
 
 }

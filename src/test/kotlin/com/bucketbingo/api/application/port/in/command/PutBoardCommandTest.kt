@@ -78,6 +78,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                     squares = squares,
                     name = TEST_BOARD_NAME,
                     description = "description for test",
+                    targetCount = TEST_BOARD_SIZE,
                     endDate = LocalDateTime.now(),
                 )
                 val exception = shouldThrow<RuntimeException> {
@@ -100,6 +101,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                     description = "",
                     size = TEST_BOARD_SIZE,
                     squares = getSquaresMockBy(size = TEST_BOARD_SIZE),
+                    targetCount = TEST_BOARD_SIZE,
                     startDate = null,
                     endDate = null,
                     createdById = TEST_USER_ID,
@@ -112,6 +114,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                     name = TEST_BOARD_NAME,
                     description = "description for test",
                     endDate = LocalDateTime.now(),
+                    targetCount = TEST_BOARD_SIZE,
                 )
                 val exception = shouldThrow<RuntimeException> {
                     putUseCase.execute(TEST_USER, request)
@@ -135,6 +138,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                     status = BoardStatus.DRAFT,
                     description = "",
                     squares = getSquaresMockBy(size = TEST_BOARD_SIZE),
+                    targetCount = TEST_BOARD_SIZE,
                     startDate = null,
                     endDate = null,
                     createdById = TEST_USER_ID,
@@ -146,6 +150,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                     squares = squares,
                     name = TEST_BOARD_NAME,
                     description = "description for test",
+                    targetCount = TEST_BOARD_SIZE,
                     endDate = LocalDateTime.now(),
                 )
                 val exception = shouldThrow<RuntimeException> {
@@ -169,6 +174,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                     status = BoardStatus.DRAFT,
                     description = "",
                     squares = getSquaresMockBy(size = TEST_BOARD_SIZE),
+                    targetCount = TEST_BOARD_SIZE,
                     startDate = null,
                     endDate = null,
                     createdById = TEST_USER_ID,
@@ -188,6 +194,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                     },
                     name = TEST_BOARD_NAME,
                     description = "description for test",
+                    targetCount = TEST_BOARD_SIZE,
                     endDate = LocalDateTime.now(),
                 )
                 val exception = shouldThrow<RuntimeException> {
@@ -208,6 +215,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                     status = BoardStatus.DRAFT,
                     description = "",
                     squares = getSquaresMockBy(size = TEST_BOARD_SIZE),
+                    targetCount = TEST_BOARD_SIZE,
                     startDate = null,
                     endDate = null,
                     createdById = TEST_USER_ID,
@@ -230,6 +238,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                     squares = squares,
                     name = TEST_BOARD_NAME,
                     description = "description for test",
+                    targetCount = TEST_BOARD_SIZE,
                     endDate = endDate,
                 )
 

@@ -1,6 +1,7 @@
 package com.bucketbingo.api.adapter.`in`.rest.models
 
 import java.util.Objects
+import com.bucketbingo.api.adapter.`in`.rest.models.Bingo
 import com.bucketbingo.api.adapter.`in`.rest.models.BingoBoardStatus
 import com.bucketbingo.api.adapter.`in`.rest.models.BingoSquare
 import com.bucketbingo.api.adapter.`in`.rest.models.UserContext
@@ -23,6 +24,7 @@ import jakarta.validation.Valid
  * @param propertySize 
  * @param squares 
  * @param status 
+ * @param bingo 
  * @param created 
  * @param updated 
  * @param description 
@@ -45,6 +47,9 @@ data class BingoBoard(
 
     @field:Valid
     @get:JsonProperty("status", required = true) val status: BingoBoardStatus,
+
+    @field:Valid
+    @get:JsonProperty("bingo", required = true) val bingo: Bingo,
 
     @field:Valid
     @get:JsonProperty("created", required = true) val created: UserContext,

@@ -54,6 +54,7 @@ class CreateBoardCommandTest : BehaviorSpec() {
                 name = TEST_BOARD_NAME,
                 size = TEST_BOARD_SIZE,
                 description = null,
+                targetCount = TEST_BOARD_SIZE,
                 endDate = null,
             )
 

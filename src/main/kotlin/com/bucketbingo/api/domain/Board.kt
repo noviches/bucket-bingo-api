@@ -1,5 +1,6 @@
 package com.bucketbingo.api.domain
 
+import com.bucketbingo.api.application.port.core.BingoCheckerImpl
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.Id
 import org.springframework.data.annotation.LastModifiedDate
@@ -22,6 +23,8 @@ data class Board(
 
     val status: BoardStatus = BoardStatus.DRAFT,
 
+    val targetCount: Int,
+
     val startDate: LocalDateTime?,
 
     val endDate: LocalDateTime?,
@@ -43,6 +46,8 @@ data class Board(
     val updater: User? = null
 
 ) {
+    val currentBingoCount: Int
+        get() = BingoCheckerImpl(this).getBingoCount()
 
     companion object {
 
