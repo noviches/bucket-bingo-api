@@ -17,6 +17,7 @@ import jakarta.validation.Valid
  * 
  * @param name 
  * @param description 
+ * @param targetCount 
  * @param endDate 
  * @param squares 
  */
@@ -25,6 +26,10 @@ data class PutBoardRequest(
     @get:JsonProperty("name", required = true) val name: kotlin.String,
 
     @get:JsonProperty("description", required = true) val description: kotlin.String,
+
+    @get:Min(1)
+    @get:Max(22)
+    @get:JsonProperty("targetCount", required = true) val targetCount: kotlin.Int,
 
     @get:JsonProperty("endDate", required = true) val endDate: java.time.OffsetDateTime,
 

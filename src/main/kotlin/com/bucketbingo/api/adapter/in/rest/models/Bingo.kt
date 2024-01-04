@@ -14,27 +14,18 @@ import jakarta.validation.Valid
 
 /**
  * 
- * @param name 
- * @param propertySize 
  * @param targetCount 
- * @param description 
- * @param endDate (정책) 최소 7일, 최대 300년
+ * @param currentCount 
  */
-data class CreateBoardRequest(
-
-    @get:JsonProperty("name", required = true) val name: kotlin.String,
-
-    @get:Min(5)
-    @get:Max(10)
-    @get:JsonProperty("size", required = true) val propertySize: kotlin.Int,
+data class Bingo(
 
     @get:Min(1)
     @get:Max(22)
-    @get:JsonProperty("targetCount") val targetCount: kotlin.Int? = null,
+    @get:JsonProperty("targetCount", required = true) val targetCount: kotlin.Int,
 
-    @get:JsonProperty("description") val description: kotlin.String? = null,
-
-    @get:JsonProperty("endDate") val endDate: java.time.OffsetDateTime? = null
+    @get:Min(0)
+    @get:Max(22)
+    @get:JsonProperty("currentCount", required = true) val currentCount: kotlin.Int
 ) {
 
 }

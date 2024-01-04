@@ -162,6 +162,8 @@ components:
             $ref: '#/components/schemas/BingoSquare'
         status:
           $ref: '#/components/schemas/BingoBoardStatus'
+        bingo:
+          $ref: '#/components/schemas/Bingo'
         startDate:
           type: string
           format: date-time
@@ -180,6 +182,7 @@ components:
         - size
         - squares
         - status
+        - bingo
         - created
         - updated
     BingoBoardStatus:
@@ -232,6 +235,23 @@ components:
         - totalCount
         - currentCount
       description: '최초에 BingoSquare가 생성된 경우, objective가 설정되지 않았을 것이므로 nullable임'
+    Bingo:
+      title: Bingo
+      type: object
+      properties:
+        targetCount:
+          type: integer
+          format: int32
+          minimum: 1
+          maximum: 22
+        currentCount:
+          type: integer
+          maximum: 22
+          minimum: 0
+          format: int32
+      required:
+        - targetCount
+        - currentCount
     User:
       title: User
       type: object
@@ -293,6 +313,11 @@ components:
                 example: 5
                 minimum: 5
                 maximum: 10
+              targetCount:
+                type: integer
+                format: int32
+                minimum: 1
+                maximum: 22
               description:
                 type: string
               endDate:
@@ -313,6 +338,11 @@ components:
                 type: string
               description:
                 type: string
+              targetCount:
+                type: integer
+                format: int32
+                minimum: 1
+                maximum: 22
               endDate:
                 type: string
                 format: date-time
@@ -333,6 +363,7 @@ components:
             required:
               - name
               - description
+              - targetCount
               - endDate
               - squares
     UpdateSquare:
