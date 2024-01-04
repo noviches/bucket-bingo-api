@@ -25,7 +25,7 @@ internal fun Board.convertToBingoBoard(): BingoBoard {
         ),
         bingo = Bingo(
             targetCount = targetCount,
-            currentCount = 0, // TODO: 수정 필요
+            currentCount = currentBingoCount,
         ),
         updated = UserContext(
             at = updatedAt!!.toOffsetDateTime(),
