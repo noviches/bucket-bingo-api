@@ -15,7 +15,7 @@ data class Board(
 
     val name: String,
 
-    val description: String,
+    val description: String?,
 
     val size: Int,
 

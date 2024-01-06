@@ -114,7 +114,7 @@ class BucketBingoController(
                 name = putBoardRequest.name,
                 description = putBoardRequest.description,
                 targetCount = putBoardRequest.targetCount,
-                endDate = putBoardRequest.endDate.toLocalDateTime(),
+                endDate = putBoardRequest.endDate?.toLocalDateTime(),
                 squares = putBoardRequest.squares.convertToSquare()
             )
         )

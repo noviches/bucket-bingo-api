@@ -60,6 +60,7 @@ internal fun List<PutBoardRequestSquaresInner>.convertToSquare(): List<Square> {
             order = index + 1,
             objective = Objective(
                 content = it.content,
+                totalCount = it.totalCount
             ),
             status = SquareStatus.TODO,
             updatedAt = LocalDateTime.now(),

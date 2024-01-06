@@ -14,14 +14,15 @@ import jakarta.validation.Valid
 
 /**
  * 
- * @param content 
  * @param totalCount 
+ * @param content 
  */
 data class PutBoardRequestSquaresInner(
 
-    @get:JsonProperty("content", required = true) val content: kotlin.String,
+    @get:Min(1)
+    @get:JsonProperty("totalCount", required = true) val totalCount: kotlin.Int,
 
-    @get:JsonProperty("totalCount", required = true) val totalCount: kotlin.String
+    @get:JsonProperty("content") val content: kotlin.String? = null
 ) {
 
 }

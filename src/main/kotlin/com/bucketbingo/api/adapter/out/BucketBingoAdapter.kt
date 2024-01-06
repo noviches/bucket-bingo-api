@@ -30,7 +30,7 @@ class BucketBingoAdapter(
 
         val direction = Sort.Direction.valueOf(data.sort.direction.name)
         val sort = Sort.by(direction, data.sort.by.value)
-        val pageRequest = PageRequest.of(data.pageSize, data.pageOffset, sort)
+        val pageRequest = PageRequest.of(data.pageOffset, data.pageSize, sort)
 
         val boards = repository.findAll(pageRequest)
 
