@@ -231,7 +231,6 @@ components:
           format: int32
           minimum: 1
       required:
-        - content
         - totalCount
         - currentCount
       description: '최초에 BingoSquare가 생성된 경우, objective가 설정되지 않았을 것이므로 nullable임'
@@ -357,15 +356,14 @@ components:
                     content:
                       type: string
                     totalCount:
-                      type: string
+                      type: integer
+                      format: int32
+                      minimum: 1
                   required:
-                    - content
                     - totalCount
             required:
               - name
-              - description
               - targetCount
-              - endDate
               - squares
     UpdateSquare:
       description: ''

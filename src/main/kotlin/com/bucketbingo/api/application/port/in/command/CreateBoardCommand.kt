@@ -33,7 +33,7 @@ class CreateBoardCommand(
 
         val board = Board(
             name = data.name,
-            description = data.description ?: "",
+            description = data.description,
             size = data.size,
             squares = squares,
             targetCount = data.targetCount,
