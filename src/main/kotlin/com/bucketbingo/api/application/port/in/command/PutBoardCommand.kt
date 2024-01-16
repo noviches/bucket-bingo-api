@@ -1,5 +1,6 @@
 package com.bucketbingo.api.application.port.`in`.command
 
+import com.bucketbingo.api.application.exception.NotFoundResourceException
 import com.bucketbingo.api.application.port.`in`.PutBoardUseCase
 import com.bucketbingo.api.application.port.out.persistence.GetBoardPort
 import com.bucketbingo.api.application.port.out.persistence.UpdateBoardPort
@@ -24,12 +25,12 @@ class PutBoardCommand(
         val (boardId, squares) = data
 
         val board = getPort.findOne(boardId)
-            ?: throw RuntimeException("cannot find board($boardId)")
+            ?: throw NotFoundResourceException("cannot find board($boardId)")
 
         // TODO: board.createdById != user.id인 경우 예외를 던지도록 개선
 
         if(board.status != BoardStatus.DRAFT) {
-            throw RuntimeException("cannot update board")
+            throw IllegalStateException("cannot update board")
         }
 
         val expectedSize = Board.getSquareLength(board.size)

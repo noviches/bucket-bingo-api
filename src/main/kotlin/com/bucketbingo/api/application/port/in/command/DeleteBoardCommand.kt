@@ -1,5 +1,6 @@
 package com.bucketbingo.api.application.port.`in`.command
 
+import com.bucketbingo.api.application.exception.NotFoundResourceException
 import com.bucketbingo.api.application.port.`in`.DeleteBoardUseCase
 import com.bucketbingo.api.application.port.out.persistence.DeleteBoardPort
 import com.bucketbingo.api.application.port.out.persistence.GetBoardPort
@@ -23,7 +24,7 @@ class DeleteBoardCommand(
 
         val (boardId) = data
 
-        getBoardPort.findOne(boardId) ?: throw NoSuchElementException("board(${data.id}) not found")
+        getBoardPort.findOne(boardId) ?: throw NotFoundResourceException("board(${data.id}) not found")
 
         deleteBoardPort.delete(boardId)
     }

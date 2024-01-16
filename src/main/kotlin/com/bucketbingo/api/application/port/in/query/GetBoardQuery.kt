@@ -1,5 +1,6 @@
 package com.bucketbingo.api.application.port.`in`.query
 
+import com.bucketbingo.api.application.exception.NotFoundResourceException
 import com.bucketbingo.api.application.port.`in`.GetBoardUseCase
 import com.bucketbingo.api.application.port.out.persistence.GetBoardPort
 import com.bucketbingo.api.domain.Board
@@ -12,6 +13,6 @@ class GetBoardQuery(
 ) : GetBoardUseCase {
 
     override fun execute(user: User, data: GetBoardUseCase.Request): Board {
-        return port.findOne(data.id) ?: throw NoSuchElementException("board(${data.id}) not found")
+        return port.findOne(data.id) ?: throw NotFoundResourceException("board(${data.id}) not found")
     }
 }
