@@ -19,7 +19,7 @@ class ErrorHandler {
     fun handleCommonException(ex: Exception): ResponseEntity<ExceptionResponse> {
         val exceptionResponse = ExceptionResponse(
             code = "UNCAUGHT_EXCEPTION",
-            message = ex.message ?: ""
+            message = "internal server error"
         )
         logger.error("UNCAUGHT_EXCEPTION occurred: ${ex.message}")
 
