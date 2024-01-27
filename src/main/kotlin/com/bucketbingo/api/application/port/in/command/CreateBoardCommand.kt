@@ -19,6 +19,8 @@ class CreateBoardCommand(
     }
 
     override fun execute(user: User, data: CreateBoardUseCase.Request): String {
+        val maximumTargetCount = data.size * 2 + 2
+        require(maximumTargetCount >= data.targetCount) { "maximum targetCount is $maximumTargetCount" }
 
         val squaresLength = Board.getSquareLength(data.size)
         logger.info("squaresLength: $squaresLength")
