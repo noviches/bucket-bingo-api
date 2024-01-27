@@ -30,7 +30,7 @@ data class ListBoards200Response(
     @get:JsonProperty("totalCount", required = true) val totalCount: kotlin.Long,
 
     @get:Min(1L)
-    @get:JsonProperty("pageSize", required = true) val pageSize: kotlin.Long = 20L,
+    @get:JsonProperty("pageSize", required = true) val pageSize: kotlin.Long = 12L,
 
     @get:Min(0L)
     @get:JsonProperty("pageOffset", required = true) val pageOffset: kotlin.Long,

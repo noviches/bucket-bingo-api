@@ -7,7 +7,7 @@ interface ListBoardsUseCase : UseCase<ListBoardsUseCase.Request, Pagination<Boar
 
     data class Request(
 
-        val pageSize: Int = 20,
+        val pageSize: Int = 12,
 
         val pageOffset: Int = 0,
 
