@@ -8,7 +8,7 @@ data class Square(
 
     val objective: Objective?,
 
-    val status: SquareStatus = SquareStatus.TODO,
+    val status: SquareStatus = SquareStatus.DRAFT,
 
     val updatedAt: LocalDateTime
 

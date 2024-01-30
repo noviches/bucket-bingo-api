@@ -5,6 +5,7 @@ import com.bucketbingo.api.application.port.`in`.StartBoardUseCase
 import com.bucketbingo.api.application.port.out.persistence.GetBoardPort
 import com.bucketbingo.api.application.port.out.persistence.UpdateBoardPort
 import com.bucketbingo.api.domain.BoardStatus
+import com.bucketbingo.api.domain.SquareStatus
 import com.bucketbingo.api.domain.User
 import org.slf4j.LoggerFactory
 import org.springframework.stereotype.Service
@@ -42,7 +43,8 @@ class StartBoardCommand(
 
         updatePort.update(
             board = board.copy(
-                status = BoardStatus.ACTIVE
+                status = BoardStatus.ACTIVE,
+                squares = board.squares.map { it.copy(status = SquareStatus.TODO) }
             )
         )
     }

@@ -63,7 +63,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                     objective = Objective(
                         content = "write test code."
                     ),
-                    status = SquareStatus.TODO,
+                    status = SquareStatus.DRAFT,
                     updatedAt = LocalDateTime.now(),
                 )
             }
@@ -188,7 +188,7 @@ class PutBoardCommandTest: BehaviorSpec() {
                             status = if(index == 0) {
                                 SquareStatus.IN_PROGRESS
                             } else {
-                                SquareStatus.TODO
+                                SquareStatus.DRAFT
                             }
                         )
                     },
@@ -203,7 +203,7 @@ class PutBoardCommandTest: BehaviorSpec() {
 
                 Then("예외가 발생한다.") {
 
-                    exception.message shouldBe "all board squares status must be TODO"
+                    exception.message shouldBe "all board squares status must be DRAFT"
                 }
             }
 

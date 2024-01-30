@@ -15,10 +15,11 @@ import jakarta.validation.Valid
 
 /**
 * 
-* Values: TODO,IN_PROGRESS,DONE
+* Values: DRAFT,TODO,IN_PROGRESS,DONE
 */
 enum class BingoSquareStatus(val value: kotlin.String) {
 
+    @JsonProperty("DRAFT") DRAFT("DRAFT"),
     @JsonProperty("TODO") TODO("TODO"),
     @JsonProperty("IN_PROGRESS") IN_PROGRESS("IN_PROGRESS"),
     @JsonProperty("DONE") DONE("DONE")

@@ -196,7 +196,7 @@ class StartBoardCommandTest : BehaviorSpec() {
                     status = BoardStatus.DRAFT,
                     description = "",
                     size = TEST_BOARD_SIZE,
-                    squares = getSquaresMockBy(size = TEST_BOARD_SIZE).map { it.copy(objective = Objective(content = "do something")) },
+                    squares = getSquaresMockBy(size = TEST_BOARD_SIZE).map { it.copy(status = SquareStatus.TODO, objective = Objective(content = "do something")) },
                     targetCount = TEST_BOARD_SIZE,
                     startDate = null,
                     endDate = LocalDateTime.now().plusYears(1L),

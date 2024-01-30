@@ -103,7 +103,7 @@ class BingoCheckerImplTest : BehaviorSpec() {
                 status = if (set.contains(it)) {
                     SquareStatus.DONE
                 } else {
-                    SquareStatus.TODO
+                    SquareStatus.DRAFT
                 }
             )
         }

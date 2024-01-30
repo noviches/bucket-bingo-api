@@ -213,6 +213,7 @@ components:
     BingoSquareStatus:
       title: BingoSquareStatus
       enum:
+        - DRAFT
         - TODO
         - IN_PROGRESS
         - DONE
