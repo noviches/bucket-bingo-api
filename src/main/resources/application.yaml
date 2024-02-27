@@ -1,4 +1,6 @@
 spring:
+  profiles:
+    active: ${SPRING_PROFILE:local}
   data:
     mongodb:
       username: root
@@ -7,6 +9,17 @@ spring:
       port: 27017
       database: local
       authentication-database: admin
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: "jdbc:postgresql://127.0.0.1:35432/bucket_bingo"
+    username: "postgres"
+    password: "my-first-nest-pw"
+  jpa:
+    hibernate:
+      ddl-auto: create #create update none
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+    show-sql: true
 
 server:
   port: 33728

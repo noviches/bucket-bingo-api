@@ -1,6 +1,9 @@
 ### MongoDB ###
 mongo/
 
+### Local ###
+*-local.yaml
+
 *-api.yml
 application.yml
 HELP.m
