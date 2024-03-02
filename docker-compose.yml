@@ -7,14 +7,19 @@ services:
     depends_on:
       mongodb:
         condition: service_healthy
+      postgresql:
+        condition: service_healthy
+    container_name: bucket-bingo-api
     networks:
       - ineg
     ports:
       - '33728:33728'
+    restart: on-failure
 
   mongodb:
-    image: mongo
+    image: mongo:4.2
     restart: always
+    container_name: bucket-bingo-mongo
     networks:
       - ineg
     ports:
@@ -22,13 +27,34 @@ services:
     expose:
       - 27017
     volumes:
-      - /tmp/mongodb2:/data/db
+      - /tmp/mongodb3:/data/db
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_ROOT_PASSWORD=bucket-bingo-api
+      - MONGO_INITDB_ROOT_USERNAME=root
       - MONGO_INITDB_DATABASE=local
     healthcheck:
-      test: echo 'db.runCommand("ping").ok' | mongosh localhost:27017/local --quiet
+      test: echo 'db.runCommand("ping").ok'
+      interval: 3s
+      timeout: 3s
+      retries: 3
+      start_period: 5s
+
+  postgresql:
+    image: postgres:14.6
+    container_name: bucket-bingo-pg
+    networks:
+      - ineg
+    expose:
+      - 35432
+    ports:
+      - '5432:5432'
+    volumes:
+      - /tmp/pgdata:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_PASSWORD=my-first-nest-pw
+      - TZ=Asia/Seoul
+    healthcheck:
+      test: [ "CMD-SHELL", "pg_isready", "-d", "db_prod" ]
       interval: 3s
       timeout: 3s
       retries: 3
@@ -36,4 +62,3 @@ services:
 
 networks:
   ineg:
-    driver: bridge
