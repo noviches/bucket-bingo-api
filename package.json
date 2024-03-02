@@ -1,0 +1,11 @@
+{
+  "name": "bucket-bingo-api",
+  "version": "0.0.1",
+  "description": "bucket-bingo",
+  "scripts": {
+    "rebuild:dev": "chmod +x ./provision.sh && ./provision.sh"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

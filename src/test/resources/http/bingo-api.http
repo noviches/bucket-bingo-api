@@ -19,7 +19,7 @@ Content-Type: application/json
 
 ### [GET] 빙고판 상세
 < {%
-    request.variables.set("id", "6598b34bb1716a7ea5a42da3")
+    request.variables.set("id", "65e28e336675ec0966dd8d38")
 %}
 GET /boards/{{id}} HTTP/1.1
 Host: localhost:33728

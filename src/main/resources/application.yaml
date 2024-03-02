@@ -1,6 +1,6 @@
 spring:
   profiles:
-    active: ${SPRING_PROFILE:local}
+    active: ${ACTIVE_PROFILE:local}
   data:
     mongodb:
       username: root
@@ -11,9 +11,9 @@ spring:
       authentication-database: admin
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: "jdbc:postgresql://127.0.0.1:35432/bucket_bingo"
-    username: "postgres"
-    password: "my-first-nest-pw"
+    url: jdbc:postgresql://host.docker.internal:5432/postgres
+    username: postgres
+    password: my-first-nest-pw
   jpa:
     hibernate:
       ddl-auto: create #create update none
