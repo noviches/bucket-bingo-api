@@ -27,7 +27,7 @@ services:
     expose:
       - 27017
     volumes:
-      - /tmp/mongodb3:/data/db
+      - /tmp/mongodb4:/data/db
     environment:
       - MONGO_INITDB_ROOT_PASSWORD=bucket-bingo-api
       - MONGO_INITDB_ROOT_USERNAME=root
@@ -45,7 +45,7 @@ services:
     networks:
       - ineg
     expose:
-      - 35432
+      - 5432
     ports:
       - '5432:5432'
     volumes:
